@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#6757e8">
+<title>PlayLink</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Noto Sans TC",sans-serif;background:#f3f4f8;color:#191827}button,input{font:inherit}button{border:0;cursor:pointer}.app{min-height:100vh;background:#f8f8fc}.top{height:64px;background:#fff;border-bottom:1px solid #e8e7ef;display:flex;align-items:center;justify-content:space-between;padding:0 16px;position:sticky;top:0;z-index:5}.brand{font-size:22px;font-weight:900;color:#6757e8}.user{display:flex;align-items:center;gap:8px}.avatar{width:38px;height:38px;border-radius:13px;background:#ece8ff;display:grid;place-items:center;font-size:20px}.content{max-width:1050px;margin:auto;padding:18px 15px 90px}.page{display:none}.page.active{display:block}.hero{background:linear-gradient(135deg,#6757e8,#8e82f3);color:white;border-radius:23px;padding:23px;margin-bottom:20px}.hero h1{margin:0 0 7px;font-size:26px}.hero p{margin:0;color:#eeeaff}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}.card{background:#fff;border:1px solid #e6e5ed;border-radius:18px;padding:16px}.section{display:flex;justify-content:space-between;align-items:center;margin:20px 2px 12px}.section h2{font-size:18px;margin:0}.btn{padding:10px 14px;border-radius:12px;font-weight:800}.primary{background:#6757e8;color:white}.light{background:#eeeaff;color:#5c4dd2}.room-title{font-weight:850}.muted{color:#858397;font-size:13px}.tag{display:inline-block;padding:5px 8px;border-radius:8px;background:#f0edff;color:#5d4fd0;font-size:12px;font-weight:800}.people{margin-top:13px}.nav{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #dddce6;display:grid;grid-template-columns:repeat(5,1fr);padding:7px 4px calc(7px + env(safe-area-inset-bottom));z-index:10}.nav button{background:transparent;color:#777;font-size:11px}.nav button b{display:block;font-size:20px}.nav button.active{color:#6252d9}.list{display:flex;flex-direction:column;gap:10px}.friend{display:flex;align-items:center;gap:11px;background:#fff;border:1px solid #e5e4ec;border-radius:15px;padding:12px}.online{width:8px;height:8px;background:#40c982;border-radius:50%;display:inline-block}.chat{background:#fff;border:1px solid #e5e4ec;border-radius:18px;overflow:hidden}.messages{height:420px;padding:15px;background:#fafafe;overflow:auto}.bubble{width:max-content;max-width:78%;padding:10px 12px;background:#fff;border:1px solid #e5e4ec;border-radius:14px;margin:8px 0}.me{margin-left:auto;background:#6757e8;color:#fff;border:0}.composer{display:flex;gap:8px;padding:10px;border-top:1px solid #e5e4ec}.composer input{flex:1;border:1px solid #dddce7;border-radius:12px;padding:10px;outline:none}.room{background:#1d1b2a;color:white;border-radius:20px;padding:18px}.seats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:15px 0}.seat{background:#29263b;border-radius:15px;padding:16px;text-align:center}.toast{position:fixed;left:50%;bottom:78px;transform:translateX(-50%);background:#252330;color:white;padding:10px 14px;border-radius:12px;display:none;z-index:20}.toast.show{display:block}.modal{position:fixed;inset:0;background:#0008;display:none;align-items:center;justify-content:center;padding:18px;z-index:30}.modal.show{display:flex}.box{background:white;border-radius:20px;padding:20px;width:min(420px,100%)}.box h2{margin-top:0}.box input{width:100%;padding:12px;border:1px solid #dddce7;border-radius:12px;margin:7px 0 12px}
+@media(min-width:800px){.nav{position:fixed;top:64px;bottom:0;left:0;width:210px;display:flex;flex-direction:column;justify-content:flex-start;padding:20px;gap:8px}.nav button{padding:12px;text-align:left;font-size:14px}.nav button b{display:inline;margin-right:7px}.content{margin-left:210px;padding:25px}.grid{grid-template-columns:repeat(3,1fr)}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="top"><div class="brand">PlayLink</div><div class="user"><span id="name">軒軒</span><div class="avatar">🐱</div></div></header>
+<main class="content">
+<section id="home" class="page active">
+<div class="hero"><h1>今晚，和朋友一起玩。</h1><p>遊戲、語音房、好友與家族，都在這裡。</p></div>
+<div class="section"><h2>🔥 熱門語音房</h2><button class="btn primary" onclick="openRoom()">建立房間</button></div>
+<div class="grid">
+<div class="card"><span class="tag">語音房</span><div class="room-title">深夜聊天局</div><div class="muted">🎙️ 8 / 12 人 · 自由星河</div><button class="btn light" style="margin-top:12px" onclick="joinRoom('深夜聊天局')">加入</button></div>
+<div class="card"><span class="tag">狼人殺</span><div class="room-title">新手歡迎場</div><div class="muted">🎮 6 / 10 人</div><button class="btn light" style="margin-top:12px" onclick="joinRoom('新手歡迎場')">加入</button></div>
+<div class="card"><span class="tag">你畫我猜</span><div class="room-title">畫畫派對</div><div class="muted">🎮 4 / 8 人</div><button class="btn light" style="margin-top:12px" onclick="joinRoom('畫畫派對')">加入</button></div>
+</div>
+<div class="section"><h2>👥 在線好友</h2></div>
+<div class="list"><div class="friend"><div class="avatar">🐻</div><div><b>小熊</b><br><span class="muted"><i class="online"></i> 在線</span></div></div><div class="friend"><div class="avatar">🐰</div><div><b>兔兔</b><br><span class="muted">30 分鐘前</span></div></div></div>
+</section>
+<section id="games" class="page"><div class="section"><h2>🎮 遊戲大廳</h2></div><div class="grid"><div class="card"><h3>狼人殺</h3><p class="muted">多人推理遊戲</p><button class="btn primary" onclick="toast('已建立狼人殺遊戲房')">建立房間</button></div><div class="card"><h3>你畫我猜</h3><p class="muted">一起畫畫猜答案</p><button class="btn primary" onclick="toast('已建立你畫我猜房間')">建立房間</button></div><div class="card"><h3>誰是臥底</h3><p class="muted">文字推理派對</p><button class="btn primary" onclick="toast('已建立誰是臥底房間')">建立房間</button></div></div></section>
+<section id="rooms" class="page"><div class="section"><h2>🎙️ 語音房</h2><button class="btn primary" onclick="openRoom()">＋ 建立</button></div><div class="room"><h2 id="roomName">還沒有加入房間</h2><p class="muted" style="color:#bbb">Demo 模式：目前是介面操作，尚未連接真正語音伺服器。</p><div class="seats"><div class="seat">🐱<br>軒軒<br>🎙️</div><div class="seat">🐻<br>小熊<br>🎙️</div><div class="seat">🐰<br>空位</div><div class="seat">🦊<br>空位</div></div><button class="btn light" onclick="toast('已切換麥克風狀態')">🎙️ 麥克風</button> <button class="btn" style="background:#383449;color:white" onclick="toast('已離開房間')">離開</button></div></section>
+<section id="chat" class="page"><div class="section"><h2>💬 私訊</h2></div><div class="chat"><div class="messages" id="messages"><div class="bubble">嗨！歡迎來到 PlayLink 👋</div></div><div class="composer"><input id="msg" placeholder="輸入訊息…" onkeydown="if(event.key==='Enter')send()"><button class="btn primary" onclick="send()">傳送</button></div></div></section>
+<section id="me" class="page"><div class="card" style="text-align:center"><div class="avatar" style="width:85px;height:85px;margin:auto;font-size:42px">🐱</div><h2 id="profile">軒軒</h2><p class="muted">PlayLink ID：PL102518</p><button class="btn primary" onclick="editName()">編輯暱稱</button></div><div class="section"><h2>🏰 我的家族</h2></div><div class="card"><b>自由星河</b><p class="muted">族長 · Lv.18 · 2,846 家族貢獻</p><button class="btn light" onclick="toast('家族管理功能準備中')">家族管理</button></div></section>
+</main>
+<nav class="nav"><button class="active" onclick="go('home',this)"><b>🏠</b>首頁</button><button onclick="go('games',this)"><b>🎮</b>遊戲</button><button onclick="go('rooms',this)"><b>🎙️</b>房間</button><button onclick="go('chat',this)"><b>💬</b>私訊</button><button onclick="go('me',this)"><b>👤</b>我的</button></nav>
+</div>
+<div class="modal" id="modal"><div class="box"><h2>建立語音房</h2><input id="roomInput" placeholder="房間名稱，例如：今晚聊天"><button class="btn primary" onclick="createRoom()">建立</button> <button class="btn" onclick="closeModal()">取消</button></div></div>
+<div class="toast" id="toast"></div>
+<script>
+function go(id,el){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));if(el)el.classList.add('active')}
+function toast(t){let x=document.getElementById('toast');x.textContent=t;x.classList.add('show');setTimeout(()=>x.classList.remove('show'),1800)}
+function openRoom(){document.getElementById('modal').classList.add('show')}
+function closeModal(){document.getElementById('modal').classList.remove('show')}
+function createRoom(){let n=document.getElementById('roomInput').value.trim()||'我的語音房';document.getElementById('roomName').textContent=n;closeModal();go('rooms',document.querySelectorAll('.nav button')[2]);toast('房間已建立')}
+function joinRoom(n){document.getElementById('roomName').textContent=n;go('rooms',document.querySelectorAll('.nav button')[2]);toast('已加入 '+n)}
+function send(){let i=document.getElementById('msg'),t=i.value.trim();if(!t)return;let d=document.createElement('div');d.className='bubble me';d.textContent=t;document.getElementById('messages').appendChild(d);i.value='';document.getElementById('messages').scrollTop=99999}
+function editName(){let n=prompt('輸入新的暱稱',document.getElementById('profile').textContent);if(n&&n.trim()){n=n.trim();document.getElementById('profile').textContent=n;document.getElementById('name').textContent=n;localStorage.setItem('playlink_name',n)}}
+let saved=localStorage.getItem('playlink_name');if(saved){document.getElementById('profile').textContent=saved;document.getElementById('name').textContent=saved}
+</script>
+</body>
+</html>
